@@ -39,7 +39,7 @@ app.service('myService1', function(){
     return myService1;
 });
 
-app.config(function($routeProvider) {
+app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
 
     // route for the home page
@@ -80,4 +80,4 @@ app.config(function($routeProvider) {
             controller : 'viewUsersController'
 
         });
-});
+}]);

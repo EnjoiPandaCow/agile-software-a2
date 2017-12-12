@@ -1,9 +1,11 @@
+var prod =  process.env.NODE_ENV === 'prod';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -21,7 +23,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'build')));
+if (prod) {
+    app.use(express.static(path.join(__dirname, 'dist')));
+} else {
+    app.use(express.static(path.join(__dirname, 'build')));
+}
 app.use("/public", express.static(__dirname + "/public"));
 
 app.use('/', index);

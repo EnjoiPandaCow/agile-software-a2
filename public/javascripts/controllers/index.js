@@ -1,9 +1,9 @@
 var app = angular.module('ShyftWebApp');
 
-app.controller('addJobController', require('./addJobController'));
-app.controller('addUserController', require('./addUserController'));
-app.controller('mainController', require('./maincontroller'));
-app.controller('searchController', require('./searchcontroller'));
-app.controller('updateJobController', require('./updateJobController'));
-app.controller('updateUserController', require('./updateUserController'));
-app.controller('viewUsersController', require('./viewUsersController'));
+app.controller('addJobController',['$scope', require('./addJobController')]);
+app.controller('addUserController',['$scope', require('./addUserController')]);
+app.controller('mainController',['$scope', require('./maincontroller')]);
+app.controller('searchController',['$scope',require('./searchcontroller')]);
+app.controller('updateJobController',['$scope',require('./updateJobController')]);
+app.controller('updateUserController',['$scope',require('./updateUserController')]);
+app.controller('viewUsersController',['$scope',require('./viewUsersController')]);
