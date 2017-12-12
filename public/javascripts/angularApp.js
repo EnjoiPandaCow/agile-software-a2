@@ -1,7 +1,5 @@
-require('angular');
-require('angular-route');
 var app = angular.module('ShyftWebApp', ['ngRoute']);
-require('./controllers/index');
+
 
 app.service('myService', function(){
    var myService = {
