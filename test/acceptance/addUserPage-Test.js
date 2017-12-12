@@ -7,25 +7,25 @@ var By = webdriver.By;
 
 var driver;
 var mochaTimeOut = 30000;
-var numJobs;
+var numUsers;
 var pageSelector;
 var navBarSelector;
 
-test.describe('Send Item Page', function() {
+test.describe('Add User Page', function() {
     this.timeout(mochaTimeOut);
     test.before( function() {
         driver = new webdriver.Builder()
             .withCapabilities( webdriver.Capabilities.chrome() )
             .build();
-        pageSelector = By.id('jobPage');
+        pageSelector = By.id('addUserPage');
         navBarSelector = By.tagName('nav');
         driver.findElements(By.tagName('tr'))
-            .then( function( jobs ) {
-                numJobs = jobs.length;
+            .then( function( users ) {
+                numUsers = users.length;
             });
     } );
     test.beforeEach( function() {
-        driver.get('http://localhost:3000/#/job');
+        driver.get('http://localhost:3000/#/user');
         driver.wait(until.elementLocated(pageSelector), 20000);
     } );
     test.it('shows the main body', function() {
@@ -44,7 +44,7 @@ test.describe('Send Item Page', function() {
         driver.findElement(By.tagName('h1'))
             .then(function(element) {
                 element.getText().then(function(text){
-                    expect(text).to.equal('Create A New Delivery Job');
+                    expect(text).to.equal('Add A New User');
                 })
             });
     } );
@@ -52,83 +52,83 @@ test.describe('Send Item Page', function() {
         driver.findElement(By.tagName('h3'))
             .then(function(element) {
                 element.getText().then(function(text){
-                    expect(text).to.equal('Please Enter The Details Of Your Job Below');
+                    expect(text).to.equal('Please Enter User Details Below');
                 })
             });
     } );
-    test.it( 'shows collection p', function() {
+    test.it( 'shows address paragraph', function() {
         driver.findElement(By.tagName('p'))
             .then(function(element) {
                 element.getText().then(function(text){
-                    expect(text).to.equal('Collection Location');
+                    expect(text).to.equal('Address');
                 })
             });
     } );
     test.it( 'accepts a new job', function() {
-        var input = driver .findElement(By.id('titleBox'));
-    input
-        .then(function(){
-            return driver.findElement(By.id('titleBox'));
-        })
-        .then(function(element){
-            element.clear();
-            return element;
-        })
-        .then(function(element){
-            element.sendKeys('Laptop');
-        })
-        var input = driver .findElement(By.id('descBox'));
+        var input = driver .findElement(By.id('fNameBox'));
         input
             .then(function(){
-                return driver.findElement(By.id('descBox'));
+                return driver.findElement(By.id('fNameBox'));
             })
             .then(function(element){
                 element.clear();
                 return element;
             })
             .then(function(element){
-                element.sendKeys('Just Need A Laptop Moved');
+                element.sendKeys('CJ');
             })
-        var input = driver .findElement(By.id('cStreetBox'));
+        var input = driver .findElement(By.id('lNameBox'));
         input
             .then(function(){
-                return driver.findElement(By.id('cStreetBox'));
+                return driver.findElement(By.id('lNameBox'));
             })
             .then(function(element){
                 element.clear();
                 return element;
             })
             .then(function(element){
-                element.sendKeys('Polerone');
+                element.sendKeys('OSullivan');
             })
-        var input = driver .findElement(By.id('cTownBox'));
+        var input = driver .findElement(By.id('emailBox'));
         input
             .then(function(){
-                return driver.findElement(By.id('cTownBox'));
+                return driver.findElement(By.id('emailBox'));
             })
             .then(function(element){
                 element.clear();
                 return element;
             })
             .then(function(element){
-                element.sendKeys('Mooncoin');
+                element.sendKeys('cjosullivan@hotmail.co.uk');
             })
-        var input = driver .findElement(By.id('cCountyBox'));
+        var input = driver .findElement(By.id('contactNumBox'));
         input
             .then(function(){
-                return driver.findElement(By.id('cCountyBox'));
+                return driver.findElement(By.id('contactNumBox'));
             })
             .then(function(element){
                 element.clear();
                 return element;
             })
             .then(function(element){
-                element.sendKeys('Co.Kilkenny');
+                element.sendKeys('0831555552');
             })
-        var input = driver .findElement(By.id('dStreetBox'));
+        var input = driver .findElement(By.id('passwordBox'));
         input
             .then(function(){
-                return driver.findElement(By.id('dStreetBox'));
+                return driver.findElement(By.id('passwordBox'));
+            })
+            .then(function(element){
+                element.clear();
+                return element;
+            })
+            .then(function(element){
+                element.sendKeys('Password1');
+            })
+        var input = driver .findElement(By.id('streetBox'));
+        input
+            .then(function(){
+                return driver.findElement(By.id('streetBox'));
             })
             .then(function(element){
                 element.clear();
@@ -137,10 +137,10 @@ test.describe('Send Item Page', function() {
             .then(function(element){
                 element.sendKeys('Main Street');
             })
-        var input = driver .findElement(By.id('dTownBox'));
+        var input = driver .findElement(By.id('townBox'));
         input
             .then(function(){
-                return driver.findElement(By.id('dTownBox'));
+                return driver.findElement(By.id('townBox'));
             })
             .then(function(element){
                 element.clear();
@@ -149,10 +149,10 @@ test.describe('Send Item Page', function() {
             .then(function(element){
                 element.sendKeys('Gorey');
             })
-        var input = driver .findElement(By.id('dCountyBox'));
+        var input = driver .findElement(By.id('countyBox'));
         input
             .then(function(){
-                return driver.findElement(By.id('dCountyBox'));
+                return driver.findElement(By.id('countyBox'));
             })
             .then(function(element){
                 element.clear();
@@ -161,39 +161,27 @@ test.describe('Send Item Page', function() {
             .then(function(element){
                 element.sendKeys('Co.Wexford');
             })
-        var input = driver .findElement(By.id('priceBox'));
-        input
-            .then(function(){
-                return driver.findElement(By.id('priceBox'));
-            })
-            .then(function(element){
-                element.clear();
-                return element;
-            })
-            .then(function(element){
-                element.sendKeys('100');
-            })
 
             .then(function(){
-                return driver.findElement(By.id('addJobBtn'));
+                return driver.findElement(By.id('addUserBtn'));
             })
             .then(function(element){
                 element.submit();
             })
 
             .then(function() {
-            driver.wait(until.elementLocated(By.id('jobPage')),20000);
-            return driver.findElements(By.tagName('tr'));
-        })
-            .then( function( jobs ) {
-                expect(jobs.length).to.not.equal(numJobs + 0) ;
-                return jobs;
+                driver.wait(until.elementLocated(By.id('viewUsersPage')),20000);
+                return driver.findElements(By.tagName('tr'));
+            })
+            .then( function( users ) {
+                expect(users.length).to.not.equal(numUsers + 0) ;
+                return users;
             })
 
 
 
 
-} );
+    } );
 
     test.after(function() {
         driver.quit();
