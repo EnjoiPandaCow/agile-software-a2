@@ -1,6 +1,5 @@
-var app = angular.module('ShyftWebApp');
 
-app.controller('addjobController', ['$scope', '$location', '$http', function($scope, $location, $http) {
+function addjobController($scope, $location, $http) {
 
     $scope.formData = {};
 
@@ -20,6 +19,6 @@ app.controller('addjobController', ['$scope', '$location', '$http', function($sc
             });
     };
 
-}
+};
 
-]);
+module.exports = addjobController;

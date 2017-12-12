@@ -1,6 +1,5 @@
-var app = angular.module('ShyftWebApp');
 
-app.controller('adduserController', ['$scope', '$location', '$http', function($scope, $location, $http) {
+function adduserController ($scope, $location, $http) {
 
     $scope.formData = {};
 
@@ -16,6 +15,6 @@ app.controller('adduserController', ['$scope', '$location', '$http', function($s
             });
     };
 
-}
+};
 
-]);
+module.exports = adduserController;

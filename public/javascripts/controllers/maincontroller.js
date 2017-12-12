@@ -1,8 +1,7 @@
-var app = angular.module('ShyftWebApp');
 
-
-app.controller('mainController', ['$scope', function($scope) {
+function mainController ($scope) {
     // create a message to display in our view
     $scope.message = 'Welcome To Shyft';
-}
-]);
+};
+
+module.exports = mainController;

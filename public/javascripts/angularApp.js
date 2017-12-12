@@ -1,5 +1,7 @@
+require('angular');
+require('angular-route');
 var app = angular.module('ShyftWebApp', ['ngRoute']);
-
+require('./controllers/index');
 
 app.service('myService', function(){
    var myService = {
@@ -72,7 +74,7 @@ app.config(function($routeProvider) {
 
         .when('/users', {
             templateUrl : 'public/pages/viewusers.ejs',
-            controller : 'viewusersController'
+            controller : 'viewUsersController'
 
         });
 });

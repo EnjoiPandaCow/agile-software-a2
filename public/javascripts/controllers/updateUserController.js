@@ -1,6 +1,5 @@
-var app = angular.module('ShyftWebApp');
 
-app.controller('updateUserController', ['$scope', '$http', '$location', 'myService', function($scope, $http, $location, myService) {
+function updateUserController ($scope, $http, $location, myService) {
     // create a message to display in our view
     $scope.message = 'Edit User Page!';
 
@@ -25,5 +24,6 @@ app.controller('updateUserController', ['$scope', '$http', '$location', 'myServi
                 console.log('Error: ' + data)
             });
     };
-}
-]);
+};
+
+module.exports = updateUserController;

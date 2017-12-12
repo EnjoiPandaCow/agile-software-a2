@@ -1,6 +1,5 @@
-var app = angular.module('ShyftWebApp');
 
-app.controller('updateJobController', ['$scope', '$http', '$location', 'myService1', function($scope, $http, $location, myService1) {
+function updateJobController ($scope, $http, $location, myService1) {
     // create a message to display in our view
     $scope.message = 'Edit Job Page!';
 
@@ -28,5 +27,6 @@ app.controller('updateJobController', ['$scope', '$http', '$location', 'myServic
                 console.log('Error: ' + data)
             });
     };
-}
-]);
+};
+
+module.exports = updateJobController;

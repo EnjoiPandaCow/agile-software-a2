@@ -1,6 +1,5 @@
-var app = angular.module('ShyftWebApp');
 
-app.controller('searchController', ['$scope', '$http', '$location', 'myService1', function($scope, $http, $location, myService1) {
+function searchController ($scope, $http, $location, myService1) {
 
     findAll();
 
@@ -46,5 +45,6 @@ app.controller('searchController', ['$scope', '$http', '$location', 'myService1'
                 });
         }
     };
-}
-]);
+};
+
+module.exports = searchController;

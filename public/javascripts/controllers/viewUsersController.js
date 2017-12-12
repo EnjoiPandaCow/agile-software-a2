@@ -1,6 +1,5 @@
-var app = angular.module('ShyftWebApp');
 
-app.controller('viewusersController', ['$scope', '$http', '$location', 'myService', function($scope, $http, $location, myService) {
+function viewUsersController ($scope, $http, $location, myService) {
 
     findAll();
 
@@ -46,4 +45,6 @@ app.controller('viewusersController', ['$scope', '$http', '$location', 'myServic
         }
     };
 }
-]);
+
+module.exports = viewUsersController;
+
