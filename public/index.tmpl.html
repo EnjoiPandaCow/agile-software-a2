@@ -1,0 +1,37 @@
+<html ng-app="ShyftWebApp" >
+<head>
+    <title>Shyft</title>
+</head>
+
+<body ng-controller="mainController">
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/"> Shyft</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#job"><i class="fa fa-paper-plane"></i> Send Item</a></li>
+            <li><a href="#jobs"><i class="fa fa-search"></i> Search Delivery</a></li>
+            <li><a href="#user"><i class="fa fa-user"></i> Add User</a></li>
+            <li><a href="#users"><i class="fa fa-users"></i> View Users</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- MAIN CONTENT AND INJECTED VIEWS -->
+<div id="main">
+
+    <div ng-view></div>
+
+</div> <!-- End of main div -->
+<footer class="text-center">
+    <p>Shyft - The Peer to Peer Delivery Company</p>
+</footer>
+</body>
+</html>
