@@ -1,5 +1,5 @@
 
-function addjobController($scope, $location, $http) {
+function addJobController($scope, $location, $http) {
 
     $scope.formData = {};
 
@@ -21,4 +21,4 @@ function addjobController($scope, $location, $http) {
 
 };
 
-module.exports = addjobController;
+module.exports = addJobController;

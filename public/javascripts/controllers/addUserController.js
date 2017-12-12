@@ -1,5 +1,5 @@
 
-function adduserController ($scope, $location, $http) {
+function addUserController ($scope, $location, $http) {
 
     $scope.formData = {};
 
@@ -17,4 +17,4 @@ function adduserController ($scope, $location, $http) {
 
 };
 
-module.exports = adduserController;
+module.exports = addUserController;

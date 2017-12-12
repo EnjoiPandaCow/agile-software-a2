@@ -50,7 +50,7 @@ app.config(function($routeProvider) {
 
         .when('/job', {
             templateUrl : 'public/pages/addjob.ejs',
-            controller : 'addjobController'
+            controller : 'addJobController'
         })
 
         .when('/jobs', {
@@ -60,7 +60,7 @@ app.config(function($routeProvider) {
 
         .when('/user', {
             templateUrl : 'public/pages/adduser.ejs',
-            controller : 'adduserController'
+            controller : 'addUserController'
         })
 
         .when('/updateUser', {
