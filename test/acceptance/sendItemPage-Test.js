@@ -182,7 +182,7 @@ test.describe('Send Item Page', function() {
             })
 
             .then(function() {
-            driver.wait(until.elementLocated(By.id('jobPage')),20000);
+            driver.wait(until.elementLocated(By.id('searchDeliveryPage')),20000);
             return driver.findElements(By.tagName('tr'));
         })
             .then( function( jobs ) {

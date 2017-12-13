@@ -59,7 +59,7 @@ test.describe('Update Job Page', function() {
                 })
             });
     } );
-    test.it( 'accepts a new job', function() {
+    test.it( 'updates a job', function() {
         var input = driver .findElement(By.id('titleBox'));
         input
             .then(function(){
