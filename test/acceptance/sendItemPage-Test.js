@@ -190,9 +190,6 @@ test.describe('Send Item Page', function() {
                 return jobs;
             })
 
-
-
-
 } );
 
     test.after(function() {
