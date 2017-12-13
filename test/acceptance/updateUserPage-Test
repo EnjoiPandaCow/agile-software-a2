@@ -11,13 +11,13 @@ var numUsers;
 var pageSelector;
 var navBarSelector;
 
-test.describe('Add User Page', function() {
+test.describe('Update User Page', function() {
     this.timeout(mochaTimeOut);
     test.before( function() {
         driver = new webdriver.Builder()
             .withCapabilities( webdriver.Capabilities.chrome() )
             .build();
-        pageSelector = By.id('addUserPage');
+        pageSelector = By.id('updateUserPage');
         navBarSelector = By.tagName('nav');
         driver.findElements(By.tagName('tr'))
             .then( function( users ) {
@@ -25,7 +25,7 @@ test.describe('Add User Page', function() {
             });
     } );
     test.beforeEach( function() {
-        driver.get('http://localhost:3000/#/user');
+        driver.get('http://localhost:3000/#/updateUser');
         driver.wait(until.elementLocated(pageSelector), 20000);
     } );
     test.it('shows the main body', function() {
@@ -44,7 +44,7 @@ test.describe('Add User Page', function() {
         driver.findElement(By.tagName('h1'))
             .then(function(element) {
                 element.getText().then(function(text){
-                    expect(text).to.equal('Add A New User');
+                    expect(text).to.equal('Update a User');
                 })
             });
     } );
@@ -52,7 +52,7 @@ test.describe('Add User Page', function() {
         driver.findElement(By.tagName('h3'))
             .then(function(element) {
                 element.getText().then(function(text){
-                    expect(text).to.equal('Please Enter User Details Below');
+                    expect(text).to.equal('Please Enter Updated User Details Below');
                 })
             });
     } );
@@ -64,7 +64,7 @@ test.describe('Add User Page', function() {
                 })
             });
     } );
-    test.it( 'accepts a new user', function() {
+    test.it( 'updates a new job', function() {
         var input = driver .findElement(By.id('fNameBox'));
         input
             .then(function(){
@@ -75,7 +75,7 @@ test.describe('Add User Page', function() {
                 return element;
             })
             .then(function(element){
-                element.sendKeys('CJ');
+                element.sendKeys('CJ1');
             })
         var input = driver .findElement(By.id('lNameBox'));
         input
@@ -163,21 +163,11 @@ test.describe('Add User Page', function() {
             })
 
             .then(function(){
-                return driver.findElement(By.id('addUserBtn'));
+                return driver.findElement(By.id('updateUserBtn'));
             })
             .then(function(element){
                 element.submit();
             })
-
-            .then(function() {
-                driver.wait(until.elementLocated(By.id('viewUsersPage')),20000);
-                return driver.findElements(By.tagName('tr'));
-            })
-            .then( function( users ) {
-                expect(users.length).to.not.equal(numUsers + 0) ;
-                return users;
-            })
-
     } );
 
     test.after(function() {
