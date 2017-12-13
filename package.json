@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha --timeout 10000 test/routes/*",
+    "test": "cross-env NODE_ENV=test PORT=4000 mocha test/acceptance/*",
+    "back-test": "mocha --timeout 10000 test/routes/*",
+    "front-test" : "mocha test/acceptance",
     "build": "webpack",
     "start-prod": "cross-env NODE_ENV=prod node ./bin/www",
     "build-prod": "webpack --config webpack-prod.config.js"
